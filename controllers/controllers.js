@@ -17,12 +17,10 @@ module.exports = function(app){
 	app.get("/news", function (req, res){
 		request(url, function(err, resp, body){
 			var $ = cheerio.load(body);
-			var title = $(".headline");
-		 	for(var i = 0; i<title.length; i++){
-				console.log(title[i].children[0].data);
-				console.log("http://abc13.com" + title[i].parent.attribs.href);
-			}// gotta fix the html output some of them have the beggining repeated
-
+			$(".headline").each(function(i, element){
+				console.log(element.children[0].data);
+				console.log("http://abc13.com" + element.parent.attribs.href);
+			});
 		});
 	})
 }
