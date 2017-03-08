@@ -1,0 +1,27 @@
+{
+  "name": "mongoscrape",
+  "version": "1.0.0",
+  "description": "scraping from website to store on mongo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanDaManTran/mongoScrape.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanDaManTran/mongoScrape/issues"
+  },
+  "homepage": "https://github.com/DanDaManTran/mongoScrape#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.8.6",
+    "request": "^2.80.0"
+  }
+}

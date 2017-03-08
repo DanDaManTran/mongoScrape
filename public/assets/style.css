@@ -1,0 +1,17 @@
+.btn{
+	margin: 1rem;
+}
+
+.navbar{
+	background-color: #FF6EC7;
+}
+
+.location{
+	color: #555;
+	background-color: white;
+	padding-bottom: 0.4rem;
+}
+
+.scrapeBtn{
+	background-color: #49fb35;
+}
