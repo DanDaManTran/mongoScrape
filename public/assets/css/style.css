@@ -4,6 +4,7 @@
 
 .navbar{
 	background-color: #FF6EC7;
+	margin: 0;
 }
 
 .location{
@@ -12,6 +13,6 @@
 	padding-bottom: 0.4rem;
 }
 
-.scrapeBtn{
+#scrapeBtn{
 	background-color: #49fb35;
 }
