@@ -12,11 +12,21 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, "/public/")));
 require("./controllers/controllers.js")(app);
 
-// const exphbs = require("express-handlebars");
-//
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+//connecting with handlebars 
+const exphbs = require("express-handlebars");
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+//syncing mongojs
+const mongojs = require("mongojs");
+const databaseUrl = "mongoScrapeHW";
+const collections = ["saveArticles"];
+const db = mongojs(databaseUrl, collections);
+
+db.on("error", function(error) {
+  console.log("Database Error:", error);
+});
 
 
 app.listen(process.env.PORT || PORT);
