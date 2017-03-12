@@ -19,10 +19,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //syncing with mongojs
-var mongoose = require("mongoose");
-var kee = require("./keys.js");
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_27j86b0b:82fu6h1k65crrmu2070ouua0v4@ds129050.mlab.com:29050/heroku_27j86b0b" || "mongodb://localhost/mongoScrapeHW");
+mongoose.connect(MONGODB_URI || "mongodb://localhost/mongoScrapeHW");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
