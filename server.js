@@ -20,7 +20,7 @@ app.set("view engine", "handlebars");
 
 //syncing with mongojs
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI || "mongodb://localhost/mongoScrapeHW");
+mongoose.connect(MONGODB_URL || "mongodb://localhost/mongoScrapeHW");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
