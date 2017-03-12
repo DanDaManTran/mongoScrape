@@ -6,7 +6,7 @@ $(document).ready(function() {
 			cb(result);
 		});
 	}
-
+	//call back function to grab notes information from the database
 	function getNotes (id, cb){
 		$.get("/notes/"+ id).done(function(result){
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
 		});
 	}
 
-
+	//listening for the scrape button so it can scrape the news then dynamicly create rows about the news
 	$("#scrapeBtn").on("click", function(){
 		getNews( function(result){
 			$("#number").text(result.length);
@@ -34,7 +34,7 @@ $(document).ready(function() {
 				var artObj = {
 					headline: $(this).attr("data-head"),
 					url: $(this).attr("data-url")
-				}
+				};
 
 				$.post("/saving", artObj).done(function (result) {});
 			});
@@ -43,6 +43,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//this will show the modal for notes on the /save page, so you can create/delete notes for each articles
 	$(".noteModal").on("click", function(){
 		var id = $(this).attr("data-id");
 		$("#savedNotes").empty();
@@ -52,7 +53,7 @@ $(document).ready(function() {
 			$("#addNote").attr("data-id", result[0]._id);
 
 			if(!result[0].note){
-				$("#savedNotes").append(`<h5 class="notes">They are no saved notes.</h5>`)
+				$("#savedNotes").append(`<h5 class="notes">They are no saved notes.</h5>`);
 			} else if (result[0].note){
 				$.each(result[0].note, function(index, value){
 					let eachNote = value;
@@ -68,6 +69,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//this will take your notes and push it into the database so it can call it when you need too
 	$("#addNote").on("click", function() {
 		var noteIn = $("#noteInput").val();
 		var id =  $(this).attr("data-id");
@@ -75,7 +77,8 @@ $(document).ready(function() {
 		$.post("/addNotes/" + id, {note: noteIn}).done(function (result){});
 	});
 
-	$(".delNote").on("click", function() {
+	//this button will let you delete the article on the saved page
+	$(".delArt").on("click", function() {
 		var id = $(this).attr("data-id");
 
 		$.post("/delArt/" + id).done(function(result){
@@ -85,6 +88,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//this will let you delete notes when you click on the x button
 	$(document).on("click", ".xBtn", function() {
 		var id = $(this).attr("data-id");
 		var index = $(this).attr("data-index");
