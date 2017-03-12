@@ -20,7 +20,7 @@ app.set("view engine", "handlebars");
 
 //syncing with mongojs
 var mongoose = require("mongoose");
-var kee = require("../keys.js");
+var kee = require("./keys.js");
 mongoose.Promise = Promise;
 mongoose.connect(kee.mongo || "mongodb://localhost/mongoScrapeHW");
 var db = mongoose.connection;
