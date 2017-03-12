@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,20 +12,25 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, "/public/")));
 require("./controllers/controllers.js")(app);
 
-//connecting with handlebars 
+//connecting with handlebars
 const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//syncing mongojs
-const mongojs = require("mongojs");
-const databaseUrl = "mongoScrapeHW";
-const collections = ["saveArticles"];
-const db = mongojs(databaseUrl, collections);
+//syncing with mongojs
+var mongoose = require("mongoose");
+var kee = require("../keys.js");
+mongoose.Promise = Promise;
+mongoose.connect(kee.mongo || "mongodb://localhost/mongoScrapeHW");
+var db = mongoose.connection;
 
 db.on("error", function(error) {
-  console.log("Database Error:", error);
+  console.log("Mongoose Error: ", error);
+});
+
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
 });
 
 
