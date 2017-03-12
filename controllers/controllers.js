@@ -10,7 +10,9 @@ var url = "https://abc13.com/houston/";
 
 //setting up mongojs
 const mongojs = require("mongojs");
-const databaseUrl = "mongoScrapeHW";
+// const databaseUrl = "mongoScrapeHW";
+const databaseUrl = "mongodb://heroku_27j86b0b:82fu6h1k65crrmu2070ouua0v4@ds129050.mlab.com:29050/heroku_27j86b0b");
+
 const collections = ["saveArticles"];
 const db = mongojs(databaseUrl, collections);
 
