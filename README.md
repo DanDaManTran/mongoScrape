@@ -19,4 +19,4 @@ depending on if you want to see this web app as a localhost or live host on hero
 
 ##Running It as a Localhost
 
-You will want to ```node server.js``` and go to your localhost:5000. Let the save articles begin!
+You will want to ```node server.js``` and go to your localhost:3000. Let the save articles begin!
