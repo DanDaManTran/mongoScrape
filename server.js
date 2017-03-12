@@ -21,8 +21,8 @@ app.set("view engine", "handlebars");
 //syncing with mongojs
 const mongoose = require("mongoose");
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mongoScrapeHW");
-// mongoose.connect("mongodb://heroku_27j86b0b:82fu6h1k65crrmu2070ouua0v4@ds129050.mlab.com:29050/heroku_27j86b0b");
+// mongoose.connect("mongodb://localhost/mongoScrapeHW");
+mongoose.connect("mongodb://heroku_27j86b0b:82fu6h1k65crrmu2070ouua0v4@ds129050.mlab.com:29050/heroku_27j86b0b");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
