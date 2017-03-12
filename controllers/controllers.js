@@ -20,6 +20,10 @@ module.exports = function(app){
 		res.sendFile(path.join(__dirname + "/../public/", "index.html"));
 	});
 
+	app.get("/favicon.ico", function(req, res){
+		res.send(204);
+	});
+
 	app.get("/news", function (req, res){
 		request(url, function(err, resp, body){
 			var $ = cheerio.load(body);

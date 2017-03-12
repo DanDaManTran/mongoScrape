@@ -33,4 +33,4 @@ db.once("open", function() {
 });
 
 
-app.listen(process.env.PORT || PORT);
+app.listen(PORT);
