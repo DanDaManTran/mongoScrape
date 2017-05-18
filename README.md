@@ -2,6 +2,8 @@
 
 ##Week 18 Assignment - All the News That's Fit to Scrape
 
+Link: https://mangoscraper.herokuapp.com/
+
 
 This is a scrapper web app. It will be scrapping articles from abc13 Houston news site and displaying each article title and link on this web page. You then can choose which article you want to save. On the save page, it will display all the saved article you have save and along with that you can add notes to each article. You can add as many notes as wanted and delete each note.
 
